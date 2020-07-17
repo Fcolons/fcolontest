@@ -1,33 +1,29 @@
 package tests;
 
-import data.VideoGameDetails;
+import pojos.VideoGameDetails;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
-
-
 import pages.VideoGamePage;
 import settings.BaseTest;
-import components.NavBar;
-
+import components.NavigationBar;
 import java.util.List;
 
 public class HomePageTests extends BaseTest{
 
-    private NavBar navBar;
+    private NavigationBar navBar;
     private VideoGamePage videoGamesPage;
 
     @BeforeTest
     public void setUp(){
-        navBar = new NavBar(this.driver);
+        navBar = new NavigationBar(this.driver);
         videoGamesPage = new VideoGamePage(this.driver);
     }
 
     @Test
-
     public void testSuggestedGames() {
         String gameName = "Portal";
         navBar.writeGameIntoSearchInput(gameName);
@@ -37,19 +33,13 @@ public class HomePageTests extends BaseTest{
             Assert.assertTrue(game.contains("Portal"), "The game " + game + " is not correct. Not contains Search String " + gameName);
         }
     }
-    @Test
 
+    @Test
     public void testPage(){
         String gameName = "Portal";
         navBar.writeGameIntoSearchInput(gameName);
         navBar.clickFirstItem();
-        try {
             Assert.assertEquals("Portal 2", videoGamesPage.getGameTittle());
-            System.out.println("Navigated to correct webpage");
-        }
-        catch(Throwable pageNavigationError){
-            System.out.println("Didn´t navigate to correct webpage");
-        }
     }
 
     @Test
@@ -61,14 +51,11 @@ public class HomePageTests extends BaseTest{
         WebElement element = driver.findElement(By.className("details_block"));
         js.executeScript("arguments[0].scrollIntoView();", element);
         VideoGameDetails videoGame = videoGamesPage.getVideoGameDetails();
-        Assert.assertEquals("Age of Empires II: Definitive Edition", videoGame.getTitulo());
-        Assert.assertEquals("Estrategia", videoGame.getGenero());
-        Assert.assertEquals("Forgotten Empires, Tantalus Media, Wicked Witch", videoGame.getDesarrollador());
+        Assert.assertEquals("Age of Empires II: Definitive Edition", videoGame.getTittle());
+        Assert.assertEquals("Estrategia", videoGame.getGenre());
+        Assert.assertEquals("Forgotten Empires, Tantalus Media, Wicked Witch", videoGame.getDeveloper());
         Assert.assertEquals("Xbox Game Studios", videoGame.getEditor());
-        Assert.assertEquals("Age of Empires", videoGame.getFranquicia());
-        Assert.assertEquals("14 NOV 2019", videoGame.getFechaLanzamiento());
+        Assert.assertEquals("Age of Empires", videoGame.getFranchise());
+        Assert.assertEquals("14 NOV 2019", videoGame.getReleaseDate());
     }
-
-
-
 }

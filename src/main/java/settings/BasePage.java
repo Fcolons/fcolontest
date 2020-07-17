@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 abstract public class BasePage {
     private static final int TIMEOUT = 20;
-
     protected WebDriver driver;
     private WebDriverWait wait;
     private Actions actions;
@@ -19,7 +18,7 @@ abstract public class BasePage {
         actions = new Actions(this.driver);
     }
 
-       public void waitForElementToAppear(WebElement element){
+    public void waitForElementToAppear(WebElement element){
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 

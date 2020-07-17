@@ -11,12 +11,8 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//li[.='Popular']")
     private WebElement popularProductsButton;
 
-
     public HomePage(WebDriver driver){
         super(driver);
         PageFactory.initElements(driver, this);
     }
-
-
-
 }

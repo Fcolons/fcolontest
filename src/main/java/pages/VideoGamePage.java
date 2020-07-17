@@ -1,12 +1,11 @@
 package pages;
 
-import data.VideoGameDetails;
+import pojos.VideoGameDetails;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import settings.BasePage;
-
 import java.util.List;
 
 public class VideoGamePage extends BasePage {
@@ -29,18 +28,16 @@ public class VideoGamePage extends BasePage {
     private VideoGameDetails generateVideoGameDetailsFromDetailsBlock(String details_block) {
         String[] detailsBlockArray = details_block.split("\n");
         VideoGameDetails videoGameDetails = new VideoGameDetails();
-        videoGameDetails.setTitulo(detailsBlockArray[0].replace("TÍTULO:","").trim());
-        videoGameDetails.setGenero(detailsBlockArray[1].replace("GÉNERO:", "").trim());
-        videoGameDetails.setDesarrollador(detailsBlockArray[2].replace("DESARROLLADOR:", "").trim());
+        videoGameDetails.setTittle(detailsBlockArray[0].replace("TÍTULO:","").trim());
+        videoGameDetails.setGenre(detailsBlockArray[1].replace("GÉNERO:", "").trim());
+        videoGameDetails.setDeveloper(detailsBlockArray[2].replace("DESARROLLADOR:", "").trim());
         videoGameDetails.setEditor(detailsBlockArray[3].replace("EDITOR:", "").trim());
-        videoGameDetails.setFranquicia(detailsBlockArray[4].replace("FRANQUICIA:", "").trim());
-        videoGameDetails.setFechaLanzamiento(detailsBlockArray[5].replace("FECHA DE LANZAMIENTO:", "").trim());
+        videoGameDetails.setFranchise(detailsBlockArray[4].replace("FRANQUICIA:", "").trim());
+        videoGameDetails.setReleaseDate(detailsBlockArray[5].replace("FECHA DE LANZAMIENTO:", "").trim());
         return videoGameDetails;
     }
 
     public String getGameTittle(){
-        String gameTittle;
-        gameTittle = appName.getText();
-        return gameTittle;
+        return appName.getText();
     }
 }
