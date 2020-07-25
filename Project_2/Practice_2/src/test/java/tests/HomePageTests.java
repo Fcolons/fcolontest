@@ -17,17 +17,7 @@ public class HomePageTests extends BaseTest {
 
     @Test
     public void testClickOnButton() {
-        int i = 1;
-        int opportunities = 3;
         homePage.clickLogin();
-        while (i <= opportunities) {
-            if(homePage.isLoginDisplayed() == false){
-                i=i+1;
-            }
-            else{
-                break;
-            }
-        }
         Assert.assertEquals(true, homePage.isLoginDisplayed());
     }
 }

@@ -6,17 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import settings.BasePage;
 import org.openqa.selenium.support.PageFactory;
-
-import java.util.List;
 import java.util.NoSuchElementException;
 
 public class HomePage extends BasePage{
 
     @FindBy(id = "ul-btn")
     private WebElement btnLoginSession;
-
-    /*@FindBy(className = "desktops")
-    private WebElement loginForm;*/
 
     public HomePage(WebDriver driver){
         super(driver);
