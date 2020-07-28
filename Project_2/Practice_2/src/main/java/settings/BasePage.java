@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 abstract public class BasePage {
-    private static final int TIMEOUT = 1;
+    private static final int TIMEOUT = 10;
     protected WebDriver driver;
     private WebDriverWait wait;
     private Actions actions;

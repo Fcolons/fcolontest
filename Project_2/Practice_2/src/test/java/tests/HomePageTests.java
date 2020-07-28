@@ -18,6 +18,6 @@ public class HomePageTests extends BaseTest {
     @Test
     public void testClickOnButton() {
         homePage.clickLogin();
-        Assert.assertEquals(true, homePage.isLoginDisplayed());
+        Assert.assertTrue(homePage.isLoginDisplayed(), "The element doesnt respond, its not ready.");
     }
 }
